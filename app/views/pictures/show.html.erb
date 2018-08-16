@@ -1,5 +1,9 @@
 
-<%= link_to("Back to Pictures", "/pictures") %> | <%= link_to("Edit", "/pictures/#{@picture.id}/edit") %>
+<%= link_to("Back to Pictures", "/pictures") %> | <%= link_to("Edit", "/pictures/#{@picture.id}/edit") %> | <%= link_to("Delete", "/pictures/#{@picture.id}", method: :delete, data: {confirm: "Are you seure you want to delete this picture?"}) %>
+                                                                                                                                                <!-- method lets Rails know which HTTP request to use on the URl - data: {confirm: "..."}makes confirmation popup appear-->
 
 <p><%= @picture.title %>, <%= @picture.artist %></p>
 <%= image_tag(@picture.url) %>
+
+
+<%= link_to("Back to Pictures", "/pictures") %> | <%= link_to("Edit", "/pictures/#{@picture.id}/edit") %> | <%= link_to("Delete", "/pictures/#{@picture.id}", method: :delete, data: {confirm: "Are you sure you want to delete this picture?"})  %>

@@ -1,6 +1,9 @@
 class PicturesController < ApplicationController
   def index
+    @most_recent_pictures = Picture.most_recent_five
     @pictures = Picture.all
+    @created_before = Picture.created_before(DateTime.now - 2.fortnights)
+    @created_in_year = Picture.created_in_year(DateTime.now - 0.years)
   end
 
   def show
@@ -42,5 +45,11 @@ class PicturesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @picture = Picture.find(params[:id])
+    @picture.destroy
+    redirect_to "/pictures"
   end
 end

@@ -5,3 +5,30 @@
   <p><%= picture.title %>, <%= picture.artist %></p>
   <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
 <% end %>
+
+
+<h1>Most recent pictures</h1>
+
+<ul>
+  <% @most_recent_pictures.each do |picture| %>
+    <li><%= picture.title %></li>
+  <% end %>
+</ul>
+
+<h1>Month Oldies</h1>
+
+<ul>
+  <% @created_before.each do |picture| %>
+    <li><%= picture.title %>, <%= picture.artist %></li>
+    <p><%= link_to(image_tag(picture.url), "pictures/#{picture.id}") %> </p>
+  <% end %>
+</ul>
+
+<h1>This Yearies</h1>
+
+<ul>
+  <% @created_in_year.each do |picture| %>
+    <li><%= picture.title %>, <%= picture.artist %></li>
+    <p><%= link_to(image_tag(picture.url), "pictures/#{picture.id}") %></p>
+  <% end %>
+</ul>
